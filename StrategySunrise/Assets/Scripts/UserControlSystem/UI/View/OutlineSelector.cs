@@ -5,43 +5,37 @@ public sealed class OutlineSelector : MonoBehaviour
 {
     [SerializeField] private Outline[] _outlineComponents;
 
-    private bool _isSelectedCache;
+    private bool _isSelectedComponent;
     
 
-    private void Start() => DisableOutline();
+    private void Start() => UnOutline();
     
     public void SetSelected(bool isSelected)
     {
-        if (isSelected == _isSelectedCache)
+        if (isSelected == _isSelectedComponent)
         {
             return;
         }
 
         if (isSelected)
         {
-            EnableOutline();
+            OnOutline();
         }
         else
         {
-            DisableOutline();
+            UnOutline();
         }
         
-        _isSelectedCache = isSelected;
+        _isSelectedComponent = isSelected;
     }
 
-    private void DisableOutline()
+    private void UnOutline()
     {
-        for (int i = 0; i < _outlineComponents.Length; i++)
-        {
-            _outlineComponents[i].enabled = false;
-        }
+        foreach (var outline in _outlineComponents) outline.enabled = false;
     }
 
-    private void EnableOutline()
+    private void OnOutline()
     {
-        for (int i = 0; i < _outlineComponents.Length; i++)
-        {
-            _outlineComponents[i].enabled = true;
-        }
+        foreach (var outline in _outlineComponents) outline.enabled = true;
     }
 }
