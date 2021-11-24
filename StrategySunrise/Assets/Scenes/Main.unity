@@ -1755,6 +1755,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3675381690673785383, guid: 5dd235a43d36f9347a1a35df441f10d9, type: 3}
+      propertyPath: m_text
+      value: 'Patrol
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 4028056331183271942, guid: 5dd235a43d36f9347a1a35df441f10d9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

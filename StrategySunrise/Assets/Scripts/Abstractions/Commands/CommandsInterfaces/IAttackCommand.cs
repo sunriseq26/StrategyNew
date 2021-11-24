@@ -2,6 +2,6 @@
 {
     public interface IAttackCommand : ICommand
     {
-        
+        string Message { get; set; }
     }
 }
