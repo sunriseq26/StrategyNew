@@ -13,10 +13,10 @@ namespace Core
 
         [SerializeField] private Transform _unitsParent;
 
-        [SerializeField] private float _maxHealth = 1000;
+        [SerializeField] private float _maxHealth = 0;
         [SerializeField] private Sprite _icon;
 
-        private float _health = 1000;
+        private float _health = 500;
 
         public override void ExecuteSpecificCommand(IProduceUnitCommand command) 
             => Instantiate(command.UnitPrefab, 
