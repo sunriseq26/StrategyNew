@@ -16,7 +16,7 @@ namespace Core
         [SerializeField] private float _maxHealth = 0;
         [SerializeField] private Sprite _icon;
 
-        private float _health = 500;
+        private float _health = 1000;
 
         public override void ExecuteSpecificCommand(IProduceUnitCommand command) 
             => Instantiate(command.UnitPrefab, 
