@@ -2,13 +2,14 @@
 using Abstractions.Commands.CommandsInterfaces;
 using UnityEngine;
 
-namespace Core
+namespace UserControlSystem
 {
     public class MoveCommandExecutor : CommandExecutorBase<IMoveCommand>
     {
         public override void ExecuteSpecificCommand(IMoveCommand command)
         {
-            Debug.Log($"Creature move to {command.Position}");
+            Debug.Log($"{name} is moving to {command.Target}!");
         }
     }
+
 }

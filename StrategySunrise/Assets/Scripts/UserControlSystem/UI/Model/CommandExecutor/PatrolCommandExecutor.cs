@@ -2,7 +2,7 @@
 using Abstractions.Commands.CommandsInterfaces;
 using UnityEngine;
 
-namespace Core
+namespace UserControlSystem
 {
     public class PatrolCommandExecutor : CommandExecutorBase<IPatrolCommand>
     {

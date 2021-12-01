@@ -1,7 +1,9 @@
-﻿namespace Abstractions.Commands.CommandsInterfaces
+﻿using UnityEngine;
+
+namespace Abstractions.Commands.CommandsInterfaces
 {
     public interface IAttackCommand : ICommand
     {
-        string Message { get; set; }
+        public Transform Target { get; }
     }
 }

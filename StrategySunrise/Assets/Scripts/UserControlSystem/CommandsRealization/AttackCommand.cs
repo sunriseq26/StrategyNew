@@ -1,11 +1,14 @@
-﻿using Abstractions.Commands.CommandsInterfaces;
+﻿using Abstractions.Commands;
+using Abstractions.Commands.CommandsInterfaces;
+using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace UserControlSystem.CommandsRealization
 {
-    public class AttackCommand : IAttackCommand
+    public sealed class AttackCommand : IAttackCommand
     {
-        public string Message { get; set; }
+        public Transform Target { get; }
 
-        public AttackCommand(string msg) => Message = msg;
+        public AttackCommand(Transform target) => Target = target;
     }
 }

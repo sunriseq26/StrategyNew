@@ -24,21 +24,21 @@ namespace UserControlSystem.UI.View
         {
             _buttonsByExecutorType = new Dictionary<Type, GameObject>();
             _buttonsByExecutorType
-                .Add(typeof(CommandExecutorBase<IAttackCommand>), _attackButton);
+                .Add(typeof(CommandExecutorBase<IProduceUnitCommand>), _produceUnitButton);
             _buttonsByExecutorType
                 .Add(typeof(CommandExecutorBase<IMoveCommand>), _moveButton);
+            _buttonsByExecutorType
+                .Add(typeof(CommandExecutorBase<IAttackCommand>), _attackButton);
             _buttonsByExecutorType
                 .Add(typeof(CommandExecutorBase<IPatrolCommand>), _patrolButton);
             _buttonsByExecutorType
                 .Add(typeof(CommandExecutorBase<IStopCommand>), _stopButton);
-            _buttonsByExecutorType
-                .Add(typeof(CommandExecutorBase<IProduceUnitCommand>), _produceUnitButton);
         }
         
         public void BlockInteractions(ICommandExecutor ce)
         {
             UnblockAllInteractions();
-            GETButtonGameObjectByType(ce.GetType())
+            GetButtonGameObjectByType(ce.GetType())
                 .GetComponent<Selectable>().interactable = false;
         }
 
@@ -57,14 +57,14 @@ namespace UserControlSystem.UI.View
         {
             foreach (var currentExecutor in commandExecutors)
             {
-                var buttonGameObject = GETButtonGameObjectByType(currentExecutor.GetType());
+                var buttonGameObject = GetButtonGameObjectByType(currentExecutor.GetType());
                 buttonGameObject.SetActive(true);
                 var button = buttonGameObject.GetComponent<Button>();
                 button.onClick.AddListener(() => OnClick?.Invoke(currentExecutor));
             }
         }
         
-        private GameObject GETButtonGameObjectByType(Type executorInstanceType)
+        private GameObject GetButtonGameObjectByType(Type executorInstanceType)
         {
             return _buttonsByExecutorType
                 .First(type => type.Key.IsAssignableFrom(executorInstanceType))
