@@ -1,4 +1,5 @@
 ﻿using System;
+using Abstractions.Commands;
 using Abstractions.Commands.CommandsInterfaces;
 using UnityEngine;
 using UserControlSystem.CommandsRealization;
@@ -14,14 +15,14 @@ namespace UserControlSystem
         private Action<IAttackCommand> _creationCallback;
 
         [Inject]
-        private void Init(Vector3Value groundClicks)
+        private void Init(AttackableValue groundClicks)
         {
             groundClicks.OnNewValue += onNewValue;
         }
 
-        private void onNewValue(Vector3 groundClick)
+        private void onNewValue(IAttackable attackable)
         {
-            _creationCallback?.Invoke(_context.Inject(new AttackCommand(groundClick)));
+            _creationCallback?.Invoke(_context.Inject(new AttackCommand(attackable)));
             _creationCallback = null;
         }
 

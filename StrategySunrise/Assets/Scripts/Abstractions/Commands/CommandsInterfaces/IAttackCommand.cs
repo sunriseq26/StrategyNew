@@ -2,8 +2,8 @@
 
 namespace Abstractions.Commands.CommandsInterfaces
 {
-    public interface IAttackCommand : ICommand
+    public interface IAttackCommand : IAttackable, ICommand
     {
-        public Vector3 Target { get; }
+        public IAttackable Target { get; }
     }
 }

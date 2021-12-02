@@ -7,8 +7,10 @@ namespace UserControlSystem.CommandsRealization
 {
     public sealed class AttackCommand : IAttackCommand
     {
-        public Vector3 Target { get; }
+        public float Health { get; }
+        public float MaxHealth { get; }
+        public IAttackable Target { get; }
 
-        public AttackCommand(Vector3 target) => Target = target;
+        public AttackCommand(IAttackable target) => Target = target;
     }
 }
