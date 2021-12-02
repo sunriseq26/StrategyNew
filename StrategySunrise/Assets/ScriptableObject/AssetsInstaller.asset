@@ -15,4 +15,4 @@ MonoBehaviour:
   _legacyContext: {fileID: 11400000, guid: 7020622779ee9524fb5a74a22c2e2433, type: 2}
   _groundClicksRMB: {fileID: 11400000, guid: 20c1d1a6599d771429aefd8ac5a58332, type: 2}
   _attackableClicksRMB: {fileID: 11400000, guid: a397eba54e5b4a64c834a18fe45e1c3c, type: 2}
-  _selectable: {fileID: 11400000, guid: 7141aae4b16134e49af0215b6da77bcf, type: 2}
+  _selectables: {fileID: 11400000, guid: 7141aae4b16134e49af0215b6da77bcf, type: 2}
