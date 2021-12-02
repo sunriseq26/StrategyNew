@@ -4,6 +4,7 @@ namespace Abstractions.Commands.CommandsInterfaces
 {
     public interface IPatrolCommand : ICommand
     {
-        Vector3 Position { get; set; }
+        public Vector3 From { get; }
+        public Vector3 To { get; }
     }
 }

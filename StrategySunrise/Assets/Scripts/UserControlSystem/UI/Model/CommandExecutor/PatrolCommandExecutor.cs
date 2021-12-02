@@ -8,7 +8,7 @@ namespace UserControlSystem
     {
         public override void ExecuteSpecificCommand(IPatrolCommand command)
         {
-            Debug.Log($"Creature patrol to {command.Position}");
+            Debug.Log($"Creature patrol to {command.To}");
         }
     }
 }

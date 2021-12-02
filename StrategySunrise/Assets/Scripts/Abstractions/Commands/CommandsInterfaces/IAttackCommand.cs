@@ -2,7 +2,7 @@
 
 namespace Abstractions.Commands.CommandsInterfaces
 {
-    public interface IAttackCommand : IAttackable, ICommand
+    public interface IAttackCommand : ICommand
     {
         public IAttackable Target { get; }
     }
