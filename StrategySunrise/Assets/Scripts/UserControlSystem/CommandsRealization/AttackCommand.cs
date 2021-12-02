@@ -7,8 +7,8 @@ namespace UserControlSystem.CommandsRealization
 {
     public sealed class AttackCommand : IAttackCommand
     {
-        public Transform Target { get; }
+        public Vector3 Target { get; }
 
-        public AttackCommand(Transform target) => Target = target;
+        public AttackCommand(Vector3 target) => Target = target;
     }
 }

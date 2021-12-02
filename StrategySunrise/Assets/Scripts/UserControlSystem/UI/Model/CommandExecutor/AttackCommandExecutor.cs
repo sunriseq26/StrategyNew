@@ -1,5 +1,6 @@
 ﻿using Abstractions.Commands;
 using Abstractions.Commands.CommandsInterfaces;
+using UnityEngine;
 
 namespace UserControlSystem
 {
@@ -7,7 +8,7 @@ namespace UserControlSystem
     {
         public override void ExecuteSpecificCommand(IAttackCommand command)
         {
-            throw new System.NotImplementedException();
+            Debug.Log($"{name} is attacking to {command.Target}!");
         }
     }
 }
