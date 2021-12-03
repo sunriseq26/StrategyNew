@@ -1,7 +1,10 @@
-﻿using Abstractions;
+﻿using System;
+using Abstractions;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
+using UniRx;
 
 namespace UserControlSystem
 {
@@ -13,15 +16,11 @@ namespace UserControlSystem
         [SerializeField] private Image _sliderBackground;
         [SerializeField] private Image _sliderFillImage;
 
-        [SerializeField] private SelectableValue _selectedValue;
+        [Inject] private IObservable<ISelectable> _selectedValues;
 
-        private void Start()
-        {
-            _selectedValue.OnNewValue += ONSelected;
-            ONSelected(_selectedValue.CurrentValue);
-        }
-        
-        private void ONSelected(ISelectable selected)
+        private void Start() => _selectedValues.Subscribe(OnSelected);
+
+        private void OnSelected(ISelectable selected)
         {
             _selectedImage.enabled = selected != null;
             _healthSlider.gameObject.SetActive(selected != null);
