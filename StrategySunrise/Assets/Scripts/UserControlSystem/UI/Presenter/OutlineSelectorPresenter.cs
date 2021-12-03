@@ -37,5 +37,4 @@ public class OutlineSelectorPresenter : MonoBehaviour
             foreach (var selector in selectors) selector.SetSelected(value);
         }
     }
-
 }

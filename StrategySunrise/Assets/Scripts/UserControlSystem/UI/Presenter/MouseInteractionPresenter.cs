@@ -1,9 +1,12 @@
 ﻿using System.Linq;
 using Abstractions;
 using Abstractions.Commands;
+using UniRx;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UserControlSystem;
+using Utils;
+using Zenject;
 
 public sealed class MouseInteractionPresenter : MonoBehaviour
 {
@@ -17,32 +20,37 @@ public sealed class MouseInteractionPresenter : MonoBehaviour
     
     private Plane _groundPlane;
     
-    private void Start() => _groundPlane = new Plane(_groundTransform.up, 0);
-
-    private void Update()
+    [Inject]
+    private void Init()
     {
-        if (!Input.GetMouseButtonUp(0) && !Input.GetMouseButton(1))
-        {
-            return;
-        }
-        if (_eventSystem.IsPointerOverGameObject())
-        {
-            return;
-        }
-        var ray = _camera.ScreenPointToRay(Input.mousePosition);
-        var hits = Physics.RaycastAll(ray);
-        if (Input.GetMouseButtonUp(0))
+        _groundPlane = new Plane(_groundTransform.up, 0);
+
+        var uiFramesStream = Observable.EveryUpdate()
+            .Where(_ => !_eventSystem.IsPointerOverGameObject());
+
+        var leftButtonClick = uiFramesStream
+            .Where(_ => Input.GetMouseButtonDown(0));
+        var rightButtonClick = uiFramesStream
+            .Where(_ => Input.GetMouseButtonDown(1));
+
+        var leftButtonRays = leftButtonClick
+            .Select(_ => _camera.ScreenPointToRay(Input.mousePosition));
+        var rightButtonRays = rightButtonClick
+            .Select(_ => _camera.ScreenPointToRay(Input.mousePosition));
+
+        var leftButtonHits = leftButtonRays
+            .Select(ray => Physics.RaycastAll(ray));
+        var rightButtonHits = rightButtonRays
+            .Select(ray => (ray, Physics.RaycastAll(ray)));
+
+        leftButtonHits.Subscribe(hits =>
         {
             if (WeHit<ISelectable>(hits, out var selectable))
             {
                 _selectedObject.SetValue(selectable);
             }
-            else
-            {
-                _selectedObject.SetValue(null);
-            }
-        }
-        else
+        });
+        rightButtonHits.Subscribe((ray, hits) =>
         {
             if (WeHit<IAttackable>(hits, out var attackable))
             {
@@ -52,8 +60,10 @@ public sealed class MouseInteractionPresenter : MonoBehaviour
             {
                 _groundClicksRMB.SetValue(ray.origin + ray.direction * enter);
             }
-        }
+
+        });
     }
+
 
     private bool WeHit<T>(RaycastHit[] hits, out T result) where T : class
     {
