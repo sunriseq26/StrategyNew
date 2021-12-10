@@ -24,15 +24,15 @@ namespace UserControlSystem.UI.View
         {
             _buttonsByExecutorType = new Dictionary<Type, GameObject>();
             _buttonsByExecutorType
-                .Add(typeof(CommandExecutorBase<IProduceUnitCommand>), _produceUnitButton);
+                .Add(typeof(CommandExecutorBase<IAttackCommand>), _attackButton);
             _buttonsByExecutorType
                 .Add(typeof(CommandExecutorBase<IMoveCommand>), _moveButton);
-            _buttonsByExecutorType
-                .Add(typeof(CommandExecutorBase<IAttackCommand>), _attackButton);
             _buttonsByExecutorType
                 .Add(typeof(CommandExecutorBase<IPatrolCommand>), _patrolButton);
             _buttonsByExecutorType
                 .Add(typeof(CommandExecutorBase<IStopCommand>), _stopButton);
+            _buttonsByExecutorType
+                .Add(typeof(CommandExecutorBase<IProduceUnitCommand>), _produceUnitButton);
         }
         
         public void BlockInteractions(ICommandExecutor ce)

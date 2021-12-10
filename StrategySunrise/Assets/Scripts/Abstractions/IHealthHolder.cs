@@ -1,4 +1,4 @@
-﻿namespace Abstractions.Commands
+﻿namespace Abstractions
 {
     public interface IHealthHolder
     {

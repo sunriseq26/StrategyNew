@@ -1,5 +1,6 @@
 ﻿using Abstractions.Commands.CommandsInterfaces;
 using UnityEngine;
+using UserControlSystem.UI.Model;
 using Utils;
 using Zenject;
 
@@ -10,6 +11,7 @@ namespace UserControlSystem
         [SerializeField] private AssetsContext _legacyContext;
         [SerializeField] private Vector3Value _vector3Value;
         [SerializeField] private AttackableValue _attackableValue;
+        [SerializeField] private Sprite _chomperSprite;
 
         public override void InstallBindings()
         {
@@ -29,6 +31,12 @@ namespace UserControlSystem
                 .To<StopCommandCreator>().AsTransient();
             
             Container.Bind<CommandButtonsModel>().AsTransient();
+            
+            Container.Bind<float>().WithId("Chomper").FromInstance(5f);
+            Container.Bind<string>().WithId("Chomper").FromInstance("Chomper");
+            Container.Bind<Sprite>().WithId("Chomper").FromInstance(_chomperSprite);
+            
+            Container.Bind<BottomCenterModel>().AsTransient();
         }
     }
 }

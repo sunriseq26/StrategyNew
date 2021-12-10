@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 613543914892002715}
   - component: {fileID: 378161326224820901}
   m_Layer: 5
-  m_Name: UnitCreationTask
+  m_Name: UnitCreationTask5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1008,7 +1008,7 @@ GameObject:
   - component: {fileID: 9000035004826432938}
   - component: {fileID: 6174719197808308277}
   m_Layer: 5
-  m_Name: UnitCreationTask
+  m_Name: UnitCreationTask4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1715,7 +1715,7 @@ GameObject:
   - component: {fileID: 3568221966816110698}
   - component: {fileID: 886036932827583513}
   m_Layer: 5
-  m_Name: UnitCreationTask
+  m_Name: UnitCreationTask3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1833,7 +1833,6 @@ GameObject:
   - component: {fileID: 7551545550222403719}
   - component: {fileID: 490635956116448520}
   - component: {fileID: 9027694473449552756}
-  - component: {fileID: 626178542797022378}
   m_Layer: 5
   m_Name: Center
   m_TagString: Untagged
@@ -1899,23 +1898,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &626178542797022378
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2492123097496634890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abd4241cdab9471dbb144f28dc2e3b33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _selectedImage: {fileID: 352259583373709931}
-  _healthSlider: {fileID: 6848705776124097854}
-  _text: {fileID: 1770228553820027342}
-  _sliderBackground: {fileID: 8137330381172510053}
-  _sliderFillImage: {fileID: 868422581646529521}
 --- !u!1 &2539364386879854880
 GameObject:
   m_ObjectHideFlags: 0
@@ -2103,7 +2085,7 @@ GameObject:
   - component: {fileID: 5224707598034196858}
   - component: {fileID: 3745643103356257717}
   m_Layer: 5
-  m_Name: UnitCreationTask
+  m_Name: UnitCreationTask2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2493,7 +2475,7 @@ GameObject:
   - component: {fileID: 8745482638269982344}
   - component: {fileID: 3126895866093856137}
   m_Layer: 5
-  m_Name: UnitCreationTask
+  m_Name: UnitCreationTask1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
